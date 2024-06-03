@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { fakerPL } from '@faker-js/faker';
+import dotenv from 'dotenv';
+
 // import { goToShop } from '../page-objects/goToShop'
 
 // let goToShop: GoToShop;
@@ -9,10 +11,11 @@ import { fakerPL } from '@faker-js/faker';
 //   await goToShop.LoginPage()
 // })
 
+dotenv.config();
 
 test.beforeEach(async ({ page }) => {
   console.log(`Running ${test.info().title}`);
-  await page.goto('https://playwright.adamowicz.pro/');
+  await page.goto(process.env.WWW!);
   await expect(page.getByRole('banner').getByRole('link', { name: 'Sklep Playwright' })).toBeVisible();
 
 });
