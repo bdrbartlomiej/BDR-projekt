@@ -2,15 +2,6 @@ import { test, expect } from '@playwright/test';
 import { fakerPL } from '@faker-js/faker';
 import dotenv from 'dotenv';
 
-// import { goToShop } from '../page-objects/goToShop'
-
-// let goToShop: GoToShop;
-
-// test.beforeEach(async ({ page }) => {
-//   goToShop = new goToShop(page)
-//   await goToShop.LoginPage()
-// })
-
 dotenv.config();
 
 test.beforeEach(async ({ page }) => {

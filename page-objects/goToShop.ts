@@ -1,10 +1,17 @@
-import { test, expect } from '@playwright/test';
+import { expect, type Page } from "@playwright/test";
 
-let loginPage: LoginPage
+export class goToShop {
+    protected page: Page
 
-test.beforeEach(async ({ page }) => {
-    console.log(`Running ${test.info().title}`);
-    await page.goto('https://playwright.adamowicz.pro/');
-    await expect(page.getByRole('banner').getByRole('link', { name: 'Sklep Playwright' })).toBeVisible();
+    constructor(page: Page) {
+        this.page = page;
+    }
+    protected async goToShopPage(menuLabel: string){
+      console.log(`Running ${test.info().title}`);
+      await this.page.goto(process.env.WWW!);
+      await expect(this.page.getByRole('banner').getByRole('link', { name: 'Sklep Playwright' })).toBeVisible();
+      
+    }
+
   
-  });
+}
