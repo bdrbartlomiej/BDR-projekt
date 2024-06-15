@@ -20,11 +20,18 @@ test('Poprawne logowanie do sklepu', async ({ page }) => {
   await ecomm.menu().goToLogin();
 
   //when
-  await page.getByLabel('Nazwa użytkownika lub adres e-mail *').fill(process.env.LOGIN!);
-  await page.getByLabel('Hasło *').fill(process.env.PASSWORD!);
-  await page.getByRole('button', { name: 'Zaloguj się' }).click();
+
+  // await page.getByLabel('Nazwa użytkownika lub adres e-mail *').fill(process.env.LOGIN!);
+  // await page.getByLabel('Hasło *').fill(process.env.PASSWORD!);
+  // await page.getByRole('button', { name: 'Zaloguj się' }).click();
+
+  await ecomm.login().LoginToPanel();
+
   //then
-  await expect(page.getByRole('link', { name: 'Kokpit' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Zamówienia', exact: true })).toBeVisible();
-  await page.locator('p').filter({ hasText: 'Witaj playwright (nie jesteś' }).getByRole('link').click();
+
+  // await expect(page.getByRole('link', { name: 'Kokpit' })).toBeVisible();
+  // await expect(page.getByRole('link', { name: 'Zamówienia', exact: true })).toBeVisible();
+  // await page.locator('p').filter({ hasText: 'Witaj playwright (nie jesteś' }).getByRole('link').click();
+
+  await ecomm.account().AccountPage();
 });
