@@ -60,11 +60,14 @@ async function buyAndPay(page: Page) {
 }
 
 test('Złożenie zamówienia', async ({ page }) => {
+  //given
   await goToShopPage(page)
   await goToProductPage(page)
+  //when
   await addToCartClick(page)
   await showCart(page)
   await clickSentShipingAndGoToPayment(page)
+  //then
   await enterOrderData(page)
   await selectPaymentType(page)
   await buyAndPay(page)

@@ -7,9 +7,6 @@ export class LoginPage {
         this.page = page
     }
 
-    //menuLabel - zmienna
-    //funkcja protected - w wielu testach wykorzystujemy te same elementy
-
     async LoginToPanel(){
         await this.page.getByLabel('Nazwa użytkownika lub adres e-mail *').fill(process.env.LOGIN!);
         await this.page.getByLabel('Hasło *').fill(process.env.PASSWORD!);
