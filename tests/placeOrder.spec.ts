@@ -55,6 +55,7 @@ async function selectPaymentType(page: Page) {
 }
 
 async function buyAndPay(page: Page) {
+  await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Kupuję i płacę' }).click();
   await expect(page.getByText('Dziękujemy. Otrzymaliśmy Twoje zamówienie.')).toBeVisible();
 }
